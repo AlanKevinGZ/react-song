@@ -1,0 +1,14 @@
+.song-card{
+    margin: 2rem;
+    background-color: white;
+    padding: 1rem
+}
+
+.title{
+    text-transform: uppercase;
+    color: rgb(0, 63, 252);
+}
+
+p{
+    margin: 1rem 0;
+}
