@@ -13,7 +13,6 @@ class Song extends Component {
   }
 
   render() {
-    console.log("render → se pinta el JSX");
     return (
       <div className="song-card">
         <div className="song">
