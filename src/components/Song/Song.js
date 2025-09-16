@@ -1,32 +1,25 @@
 import React, { Component } from "react";
 import "./Song.css";
+import SearchResults from "./SearchResults";
 
-class Song extends Component {
-  constructor(props) {
-    super(props);
-    
-  }
+export const Song = ({ song, onAddToLibrary,showAddButton }) => {
+  const handleAddClick = () => {
+    onAddToLibrary(song);
+  };
 
- 
-  componentWillUnmount() {
-    console.log("App inicializada");
-  }
-
-  render() {
-    return (
-      <div className="song-card">
-        <div className="song">
-          <div className="title">
-            <h2>{this.props.song.titleSong}</h2>
-          </div>
-          <div className="info-song">
-            <p>Artista: {this.props.song.artist}</p>
-            <p>Duración: {this.props.song.duration}</p>
-          </div>
-        </div>
+  return (
+    <div className="song-card">
+      <div className="song-info">
+        <h3 className="song-title">{song.titleSong}</h3>
+        <p className="song-artist">{song.artist}</p>
+        <span className="song-duration">{song.duration}</span>
       </div>
-    );
-  }
-}
+        {!showAddButton ? ' ' : <button className="add-button" onClick={handleAddClick}>
+          Agregar a mi biblioteca
+        </button>}
+      
+    </div>
+  );
+};
 
 export default Song;
