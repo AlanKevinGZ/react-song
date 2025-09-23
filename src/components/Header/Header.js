@@ -1,14 +1,18 @@
 import React from "react";
 import "./header-style.css";
+import { Link } from "react-router-dom";
 
 export const Header = (props) => {
   return (
     <header className="header-main">
-      <div className="logo">
-        <img src="./img/music.png" />
+      <div >
+       <h1> {props.title} </h1>
+         
       </div>
       <div className="title">
-        <h1> {props.title} </h1>
+       <nav>
+        <Link to="/" >Search Music</Link>
+      </nav>
       </div>
     </header>
   );

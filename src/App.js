@@ -1,33 +1,35 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./components/Header/Header";
-import Library from "./components/Song/Library";
 import SearchResults from "./components/Song/SearchResults";
+import { Route, Routes } from "react-router-dom";
+import SearchBar from "./components/SearchBar";
+import SongDetail from "./components/SongDetail/SongDetail";
 
 function App() {
-  const [searchResults, setSearchResults] = useState([
-    { id: 1, titleSong: "oh lord", artist: "foxy shazam", duration: "4:00" },
-    { id: 2, titleSong: "Sonne", artist: "Rammstein", duration: "3:30" },
-    { id: 3, titleSong: "INVISIBLE", artist: "Duran Duran", duration: "5:15" },
-  ]);
+  const [query, setQuery] = useState("");
 
-  const [library, setLibrary] = useState([]);
-
-  useEffect(() => {
-    console.log( "La biblioteca actualizada");
-  }, [library]);
-
-  const addToLibrary = (song) => {
-    setLibrary((prevLibrary) => [...prevLibrary, song]);
+  const handleSearch = (searchQuery) => {
+    setQuery(searchQuery);
   };
 
   return (
     <div className="App">
       <Header title="Music App"></Header>
+      <SearchBar onSearch={handleSearch} />
 
-      <SearchResults songs={searchResults} onAddToLibrary={addToLibrary} />
-
-      <Library songs={library} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <SearchResults
+              key={query} 
+              query={query}
+            />
+          }
+        />
+        <Route path="/song/:id" element={<SongDetail />} />
+      </Routes>
     </div>
   );
 }
