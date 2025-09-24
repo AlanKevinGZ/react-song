@@ -1,3 +1,8 @@
+import styled from "styled-components";
+
+
+const SongStyle=styled.div`
+
 .song-card {
   display: flex;
   justify-content: space-between;
@@ -52,4 +57,9 @@
 .add-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+`
+export {
+    SongStyle
 }

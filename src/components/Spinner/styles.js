@@ -1,3 +1,6 @@
+import styled from "styled-components";
+
+const SpinnerStyle = styled.div`
 
 .container{
   text-align: center;
@@ -53,3 +56,10 @@ p{
     transform: rotate(-360deg);
   }
 } 
+
+`
+
+export {
+SpinnerStyle
+
+}

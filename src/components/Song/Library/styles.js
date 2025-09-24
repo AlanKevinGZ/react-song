@@ -1,3 +1,7 @@
+import styled from "styled-components";
+
+const LibraryStyle=styled.div`
+
 .title-main{
     color: white;
     text-align: center;
@@ -6,4 +10,11 @@
 
 .library{
     background-color: white;
+}
+
+
+`
+
+export {
+    LibraryStyle
 }

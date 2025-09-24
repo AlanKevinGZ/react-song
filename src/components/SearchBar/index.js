@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./style.css";
+import { FormStyle } from "./styles";
+
 
 function SearchBar({ onSearch }) {
   
@@ -20,7 +21,7 @@ function SearchBar({ onSearch }) {
 
   return (
     <div>
-      <form onSubmit={onSubmit}>
+      <FormStyle onSubmit={onSubmit}>
         <label>Artista</label>
         <input
           type="text"
@@ -29,7 +30,7 @@ function SearchBar({ onSearch }) {
           onChange={onChangeInput}
         />
         <input type="submit" value="Buscar" />
-      </form>
+      </FormStyle>
     </div>
   );
 }

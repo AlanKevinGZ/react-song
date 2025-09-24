@@ -1,22 +1,24 @@
-form{
+import styled from "styled-components";
+
+const FormStyle = styled.form`
+  form {
     padding: 1rem;
-}
-label{
+  }
+  label {
     display: block;
     color: white;
-}
+  }
 
-input[type='text']{
+  input[type="text"] {
     width: 50rem;
     padding: 1rem 0.5rem;
     display: block;
     border-radius: 1rem;
     border: none;
-    margin:1rem 0 ;
-}
+    margin: 1rem 0;
+  }
 
-
-input[type='submit']{
+  input[type="submit"] {
     width: 10rem;
     padding: 1rem 0.5rem;
     text-transform: uppercase;
@@ -24,7 +26,9 @@ input[type='submit']{
     color: white;
     border: none;
     cursor: pointer;
-    
+  }
+`;
+
+export {
+    FormStyle
 }
-
-

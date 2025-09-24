@@ -1,20 +1,22 @@
 import React from "react";
-import "./header-style.css";
+
 import { Link } from "react-router-dom";
+import { HeaderMain } from "./styles";
 
 export const Header = (props) => {
   return (
-    <header className="header-main">
-      <div >
-       <h1> {props.title} </h1>
-         
-      </div>
-      <div className="title">
-       <nav>
-        <Link to="/" >Search Music</Link>
-      </nav>
-      </div>
-    </header>
+    <HeaderMain>
+      <header className="header-main">
+        <div>
+          <h1> {props.title} </h1>
+        </div>
+        <div className="title">
+          <nav>
+            <Link to="/">Search Music</Link>
+          </nav>
+        </div>
+      </header>
+    </HeaderMain>
   );
 };
 

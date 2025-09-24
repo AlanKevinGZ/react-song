@@ -1,13 +1,15 @@
-import React from 'react'
-import './style.css'
+import React from "react";
+import { SpinnerStyle } from "./styles";
 
 function Spinner() {
   return (
-    <div className='container'>
+    <SpinnerStyle>
+      <div className="container">
         <span class="loader"></span>
         <p>Cargando...</p>
-    </div>
-  )
+      </div>
+    </SpinnerStyle>
+  );
 }
 
 export default Spinner;
