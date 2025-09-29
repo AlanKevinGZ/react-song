@@ -7,6 +7,7 @@ import SongDetail from "./components/SongDetail/SongDetail";
 import { ThemeProvider } from "styled-components";
 import Theme from "./themes";
 import GlobalStyle from "./themes/GlobalStyle";
+import Library from "./components/Song/Library";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -29,6 +30,8 @@ function App() {
           />
           <Route path="/song/:id" element={<SongDetail />} />
         </Routes>
+
+        <Library></Library>
       </div>
     </ThemeProvider>
   );

@@ -1,13 +1,26 @@
-import React, { Component, use, useEffect } from "react";
-
+import React, { Component, use, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { SongStyle } from "./styles";
+import { addSongs } from "../../redux/actions/libraryActions";
 
 export const Song = ({ song, showDetail = true }) => {
   const navigate = useNavigate();
 
+  const dispach = useDispatch();
+
   const handleInfoClick = (id) => {
     navigate(`/song/${id}`, { state: { showDetail: false } });
+  };
+ 
+  const handleAddSong = (libSong) => {
+    let songObjet = {
+      id: libSong.idAlbum,
+      artist: libSong.strArtist,
+      album: libSong.strAlbum,
+    };
+
+    dispach(addSongs(songObjet));
   };
 
   return (
@@ -36,6 +49,9 @@ export const Song = ({ song, showDetail = true }) => {
         ) : (
           ""
         )}
+        <button onClick={() => handleAddSong(song)} className="add_btn">
+          Agregar a la biblioteca
+        </button>
       </div>
     </SongStyle>
   );
