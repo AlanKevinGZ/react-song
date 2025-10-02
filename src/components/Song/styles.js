@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 
 const SongStyle=styled.div`
-
+.songs-list{
+  background-color: red;
+}
 .song-card {
   display: flex;
   justify-content: space-between;

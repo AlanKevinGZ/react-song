@@ -1,16 +1,17 @@
 import React from "react";
 import { LibraryStyle } from "./styles";
-import { useSelector,useDispatch } from "react-redux";
-import { removeSong } from "../../../redux/actions/libraryActions";
+import { useSelector, useDispatch } from "react-redux";
+import { removeSong } from "../../../redux/slices/librarySlice";
+
 
 function Library() {
-  const songs = useSelector((state) => state.SongReduce.songs);
-const dispatch = useDispatch();
-  
-  const handleDeteleSong = (id) =>{
-    console.log(id);
-    dispatch(removeSong(id))
-  }
+
+  const songs = useSelector((state) => state.library.songs); 
+  const dispatch = useDispatch();
+
+  const handleDeleteSong = (id) => {
+    dispatch(removeSong(id));
+  };
 
   return (
     <LibraryStyle>
@@ -20,9 +21,10 @@ const dispatch = useDispatch();
           {songs.length > 0 ? (
             songs.map((song) => (
               <li key={song.name.id}>
-               Artista:  {song.name.artist} - Album: {song.name.album} 
-
-               <button onClick={()=>handleDeteleSong(song.name.id)}>Eliminar</button>
+                Artista: {song.name.artist} - Álbum: {song.name.album}{" "}
+                <button onClick={() => handleDeleteSong(song.name.id)}>
+                  Eliminar
+                </button>
               </li>
             ))
           ) : (

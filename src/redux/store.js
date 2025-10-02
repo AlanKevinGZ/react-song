@@ -1,8 +1,12 @@
-
-import { createStore } from "redux"
-import rootReduce from "./reduce";
-
-const store = createStore(rootReduce)
+import { configureStore } from "@reduxjs/toolkit";
+import songReduce from "./slices/librarySlice";
+import searchReduce from "./slices/searchSlice";
 
 
-export  default store;
+
+export const store = configureStore({
+  reducer: {
+    library:songReduce, 
+    search: searchReduce,   
+  },
+});

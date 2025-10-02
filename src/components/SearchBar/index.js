@@ -1,22 +1,30 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FormStyle } from "./styles";
+import { fetchSongs } from "../../redux/slices/searchSlice";
 
 
-function SearchBar({ onSearch }) {
-  
-  const [search, setSearch] = useState('');
+function SearchBar() {
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
+
+  const { loading, error } = useSelector((state) => state.search);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    
+
     if (search && search.trim()) {
-      onSearch(search.trim());
+      // Construimos la URL usando TheAudioDB como antes
+      const apiUrl = `https://www.theaudiodb.com/api/v1/json/123/searchalbum.php?s=${encodeURIComponent(
+        search.trim()
+      )}`;
+
+      dispatch(fetchSongs(apiUrl));
     }
   };
 
   const onChangeInput = (e) => {
-    const value = e.target.value;
-    setSearch(value);
+    setSearch(e.target.value);
   };
 
   return (
@@ -26,11 +34,15 @@ function SearchBar({ onSearch }) {
         <input
           type="text"
           placeholder="ColdPlay"
-          value={search} 
+          value={search}
           onChange={onChangeInput}
         />
         <input type="submit" value="Buscar" />
       </FormStyle>
+
+      {/* Mostrar estado de carga */}
+      {loading && <p>Cargando resultados...</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
     </div>
   );
 }

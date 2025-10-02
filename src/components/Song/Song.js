@@ -1,13 +1,13 @@
-import React, { Component, use, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { SongStyle } from "./styles";
-import { addSongs } from "../../redux/actions/libraryActions";
+import { SongStyle } from './styles';
+import { addSongs } from "../../redux/slices/librarySlice";
+
 
 export const Song = ({ song, showDetail = true }) => {
   const navigate = useNavigate();
 
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
 
   const handleInfoClick = (id) => {
     navigate(`/song/${id}`, { state: { showDetail: false } });
@@ -20,11 +20,12 @@ export const Song = ({ song, showDetail = true }) => {
       album: libSong.strAlbum,
     };
 
-    dispach(addSongs(songObjet));
+    dispatch(addSongs(songObjet));
   };
 
   return (
     <SongStyle>
+
       <div className="song-card">
         <div className="song-info">
           <h3 className="song-title">{song.strAlbum || "Álbum desconocido"}</h3>
