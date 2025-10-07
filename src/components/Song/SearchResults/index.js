@@ -10,6 +10,8 @@ const SearchResults = () => {
   // Accedemos al estado de búsqueda
   const { results, loading, error } = useSelector((state) => state.search);
 
+  console.log(results);
+  
   const handleAddSong = (song) => {
     const songObject = {
       name: {

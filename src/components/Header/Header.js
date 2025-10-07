@@ -10,11 +10,6 @@ export const Header = (props) => {
         <div>
           <h1> {props.title} </h1>
         </div>
-        <div className="title">
-          <nav>
-            <Link to="/">Search Music</Link>
-          </nav>
-        </div>
       </header>
     </HeaderMain>
   );

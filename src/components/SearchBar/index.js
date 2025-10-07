@@ -10,6 +10,9 @@ function SearchBar() {
 
   const { loading, error } = useSelector((state) => state.search);
 
+  console.log(search);
+  
+
   const onSubmit = (e) => {
     e.preventDefault();
 

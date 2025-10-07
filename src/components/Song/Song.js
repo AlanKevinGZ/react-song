@@ -13,6 +13,7 @@ export const Song = ({ song, showDetail = true }) => {
     navigate(`/song/${id}`, { state: { showDetail: false } });
   };
  
+  
   const handleAddSong = (libSong) => {
     let songObjet = {
       id: libSong.idAlbum,
