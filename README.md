@@ -65,6 +65,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/a
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
+
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+#Projecto
+
+Esta aplicación web fue desarrollada con React y tiene como objetivo ofrecer una experiencia interactiva para buscar,  y gestionar canciones desde una interfaz moderna y atractiva con un Servicio Rest para la busqueda. Utiliza Redux para la gestión global del estado y Jest para realizar pruebas unitarias que aseguran la correcta funcionalidad de los componentes principales.
+
+<img width="1875" height="933" alt="image" src="https://github.com/user-attachments/assets/94212bd2-d693-437a-afa8-a1584d876e77" />
+
